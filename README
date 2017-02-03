@@ -1,0 +1,20 @@
+To install this chart drawing application on your server you need perform following steps:
+
+1) Install Yii2. As an option, you can install Yii by running the following commands under a Web-accessible folder :
+composer global require "fxp/composer-asset-plugin:^1.2.0"
+composer create-project --prefer-dist yiisoft/yii2-app-basic basic
+
+If you do not already have Composer installed, run the following commands:
+curl -sS https://getcomposer.org/installer | php
+mv composer.phar /usr/local/bin/composer 
+
+You may also install Yii2 from archive http://www.yiiframework.com/download/
+2) Replace folders in you just created project with corresponding folders from repo.  
+
+3) Create database using dump file base.sql 
+
+4) Adjust you database settings for actual  in /config/db.php
+
+5) Site is ready for use!
+
+ 
