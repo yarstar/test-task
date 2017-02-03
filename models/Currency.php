@@ -11,8 +11,8 @@ use Yii;
  * @property string $name
  * @property string $abbreviation
  *
- * @property ExchangeRates[] $exchangeRates
- * @property ExchangeRates[] $exchangeRates0
+ * @property ExchangeRates[] $exchangeRateBase
+ * @property ExchangeRates[] $exchangeRateQuoted
  */
 class Currency extends \yii\db\ActiveRecord
 {
@@ -39,9 +39,9 @@ class Currency extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getExchangeRates()
+    public function getExchangeRatesBase()
     {
-        return $this->hasMany(ExchangeRates::className(), ['base_currency_id' => 'id']);
+        return $this->hasMany(ExchangeRate::className(), ['base_currency_id' => 'id']);
     }
 
     /**
@@ -49,6 +49,6 @@ class Currency extends \yii\db\ActiveRecord
      */
     public function getExchangeRatesQuoted()
     {
-        return $this->hasMany(ExchangeRates::className(), ['quoted_currency_id' => 'id']);
+        return $this->hasMany(ExchangeRate::className(), ['quoted_currency_id' => 'id']);
     }
 }

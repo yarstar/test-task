@@ -37,8 +37,8 @@ class ExchangeRate extends \yii\db\ActiveRecord
             [['base_currency_id', 'quoted_currency_id'], 'integer'],
             [['rate'], 'number'],
             [['date', 'base_currency_id', 'quoted_currency_id'], 'unique', 'targetAttribute' => ['date', 'base_currency_id', 'quoted_currency_id'], 'message' => 'The combination of Date, Base Currency ID and Quoted Currency ID has already been taken.'],
-            [['base_currency_id'], 'exist', 'skipOnError' => true, 'targetClass' => Currencies::className(), 'targetAttribute' => ['base_currency_id' => 'id']],
-            [['quoted_currency_id'], 'exist', 'skipOnError' => true, 'targetClass' => Currencies::className(), 'targetAttribute' => ['quoted_currency_id' => 'id']],
+            [['base_currency_id'], 'exist', 'skipOnError' => true, 'targetClass' => Currency::className(), 'targetAttribute' => ['base_currency_id' => 'id']],
+            [['quoted_currency_id'], 'exist', 'skipOnError' => true, 'targetClass' => Currency::className(), 'targetAttribute' => ['quoted_currency_id' => 'id']],
         ];
     }
 
@@ -47,7 +47,7 @@ class ExchangeRate extends \yii\db\ActiveRecord
      */
     public function getBaseCurrency()
     {
-        return $this->hasOne(Currencies::className(), ['id' => 'base_currency_id']);
+        return $this->hasOne(Currency::className(), ['id' => 'base_currency_id']);
     }
 
     /**
@@ -55,6 +55,6 @@ class ExchangeRate extends \yii\db\ActiveRecord
      */
     public function getQuotedCurrency()
     {
-        return $this->hasOne(Currencies::className(), ['id' => 'quoted_currency_id']);
+        return $this->hasOne(Currency::className(), ['id' => 'quoted_currency_id']);
     }
 }
