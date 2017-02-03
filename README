@@ -9,12 +9,16 @@ curl -sS https://getcomposer.org/installer | php
 mv composer.phar /usr/local/bin/composer 
 
 You may also install Yii2 from archive http://www.yiiframework.com/download/
-2) Replace folders in you just created project with corresponding folders from repo.  
 
-3) Create database using dump file base.sql 
+2) Install Google Chart extension. The preferred way to install this extension is through composer:
+composer require scotthuangzl/yii2-google-chart "dev-master"
 
-4) Adjust you database settings for actual  in /config/db.php
+3) Replace folders in you just created project with corresponding folders from repo.  
 
-5) Site is ready for use!
+4) Create database using dump file base.sql 
+
+5) Adjust you database settings for actual  in /config/db.php
+
+6) Site is ready for use!
 
  
